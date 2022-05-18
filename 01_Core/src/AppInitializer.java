@@ -1,4 +1,6 @@
-import bean.SpringBean;
+import bean.BeanOne;
+import bean.BeanThree;
+import bean.BeanTwo;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,13 +17,27 @@ public class AppInitializer {
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println("JVM is about to Shut Down");
+                ctx.close();
+            }
+        }));
+
+
         ctx.register(AppConfig.class);
         ctx.refresh();
 
-        SpringBean bean = ctx.getBean(SpringBean.class);
-        System.out.println(bean);
+        BeanOne bean1 = ctx.getBean(BeanOne.class);
+        BeanTwo bean2 = ctx.getBean(BeanTwo.class);
+        System.out.println(bean1);
+        System.out.println(bean2);
 
-        bean.testBean();
-        ctx.close();
+        BeanThree bean3 = ctx.getBean(BeanThree.class);
+        System.out.println(bean3);
+
+
     }
 }
