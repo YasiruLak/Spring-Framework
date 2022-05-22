@@ -16,7 +16,7 @@ public class AppInitializer {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
         ctx.register(AppConfig.class);
         ctx.refresh();
-        ctx.registerShutdownHook();
+//        ctx.registerShutdownHook();
 
 //        SpringBeanOne bean = ctx.getBean(SpringBeanOne.class);
 //        System.out.println(bean);
@@ -27,10 +27,10 @@ public class AppInitializer {
 //        SpringBeanOne bean2 = ctx.getBean(SpringBeanOne.class);
 //        System.out.println(bean2);
 
-        MyConnection bean = ctx.getBean(MyConnection.class);
-        MyConnection bean1 = ctx.getBean(MyConnection.class);
-
-        System.out.println(bean1);
-        System.out.println(bean);
+//        MyConnection bean = ctx.getBean(MyConnection.class);
+//        MyConnection bean1 = ctx.getBean(MyConnection.class);
+//
+//        System.out.println(bean1);
+//        System.out.println(bean);
     }
 }

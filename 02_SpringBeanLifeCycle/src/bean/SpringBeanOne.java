@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @year : 2022
  * @since : 0.1.0
  **/
-@Component
+//@Component
 @Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class SpringBeanOne {
 
