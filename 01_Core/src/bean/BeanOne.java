@@ -1,5 +1,6 @@
 package bean;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Component;
  * @since : 0.1.0
  **/
 @Component
+@Scope("prototype")
 public class BeanOne {
 
     public BeanOne(){
