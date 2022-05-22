@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
  * @year : 2022
  * @since : 0.1.0
  **/
-@Component
+@Component("BeanThree")
 public class BeanThree {
 
     public BeanThree(){
