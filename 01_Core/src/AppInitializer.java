@@ -49,11 +49,28 @@ public class AppInitializer {
 //        BeanThree beanThree = (BeanThree) ctx.getBean("beanThree");
 //        System.out.println(beanThree);
 
-        MyConnection bean = ctx.getBean(MyConnection.class);
-        System.out.println(bean);
+//        MyConnection bean = ctx.getBean(MyConnection.class);
+//        System.out.println(bean);
+//
+//        MyConnection myConnection = (MyConnection) ctx.getBean("getConnection");
+//        System.out.println(myConnection);
 
-        MyConnection myConnection = (MyConnection) ctx.getBean("getConnection");
-        System.out.println(myConnection);
+        BeanOne ref1 = ctx.getBean(BeanOne.class);
+        BeanOne ref2 = ctx.getBean(BeanOne.class);
+        BeanOne ref3 = ctx.getBean(BeanOne.class);
+        System.out.println(ref1);
+        System.out.println(ref2);
+        System.out.println(ref3);
+
+        BeanTwo b2ref1 = ctx.getBean(BeanTwo.class);
+        BeanTwo b2ref2 = ctx.getBean(BeanTwo.class);
+        System.out.println(b2ref1);
+        System.out.println(b2ref2);
+
+        MyConnection con1 = ctx.getBean(MyConnection.class);
+        MyConnection con2 = ctx.getBean(MyConnection.class);
+        System.out.println(con1);
+        System.out.println(con2);
 
     }
 }
