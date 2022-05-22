@@ -9,6 +9,8 @@ package config;
  * @since : 0.1.0
  **/
 
+import bean.MyConnection;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
@@ -18,6 +20,12 @@ public class AppConfig {
 
     public AppConfig(){
         System.out.println("AppConfig Object Created");
+    }
+
+
+    @Bean
+    public MyConnection getConnection(){
+        return new MyConnection();
     }
 
 }

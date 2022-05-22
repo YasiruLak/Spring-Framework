@@ -1,6 +1,7 @@
 import bean.BeanOne;
 import bean.BeanThree;
 import bean.BeanTwo;
+import bean.MyConnection;
 import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -39,15 +40,17 @@ public class AppInitializer {
 //        BeanThree bean3 = ctx.getBean(BeanThree.class);
 //        System.out.println(bean3);
 
-        BeanOne beanOne = (BeanOne) ctx.getBean("beanOne");
-        System.out.println(beanOne);
+//        BeanOne beanOne = (BeanOne) ctx.getBean("beanOne");
+//        System.out.println(beanOne);
+//
+//        BeanTwo beanTwo = (BeanTwo) ctx.getBean("beanTwo");
+//        System.out.println(beanTwo);
+//
+//        BeanThree beanThree = (BeanThree) ctx.getBean("beanThree");
+//        System.out.println(beanThree);
 
-        BeanTwo beanTwo = (BeanTwo) ctx.getBean("beanTwo");
-        System.out.println(beanTwo);
-
-        BeanThree beanThree = (BeanThree) ctx.getBean("beanThree");
-        System.out.println(beanThree);
-
+        MyConnection bean = ctx.getBean(MyConnection.class);
+        System.out.println(bean);
 
     }
 }
