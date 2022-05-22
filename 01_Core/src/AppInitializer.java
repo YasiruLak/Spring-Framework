@@ -28,17 +28,25 @@ public class AppInitializer {
 
         ctx.registerShutdownHook();
 
-
         ctx.register(AppConfig.class);
         ctx.refresh();
+//
+//        BeanOne bean1 = ctx.getBean(BeanOne.class);
+//        BeanTwo bean2 = ctx.getBean(BeanTwo.class);
+//        System.out.println(bean1);
+//        System.out.println(bean2);
+//
+//        BeanThree bean3 = ctx.getBean(BeanThree.class);
+//        System.out.println(bean3);
 
-        BeanOne bean1 = ctx.getBean(BeanOne.class);
-        BeanTwo bean2 = ctx.getBean(BeanTwo.class);
-        System.out.println(bean1);
-        System.out.println(bean2);
+        BeanOne beanOne = (BeanOne) ctx.getBean("beanOne");
+        System.out.println(beanOne);
 
-        BeanThree bean3 = ctx.getBean(BeanThree.class);
-        System.out.println(bean3);
+        BeanTwo beanTwo = (BeanTwo) ctx.getBean("beanTwo");
+        System.out.println(beanTwo);
+
+        BeanThree beanThree = (BeanThree) ctx.getBean("beanThree");
+        System.out.println(beanThree);
 
 
     }
