@@ -1,5 +1,7 @@
 package bean;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author : Yasiru Dahanayaka
  * @name : Spring Testing
@@ -8,19 +10,15 @@ package bean;
  * @year : 2022
  * @since : 0.1.0
  **/
+@Component
 public class Boy {
 
-    Girl girl = new Girl();//Property Injection
+    public Boy(){
+        System.out.println("Boy Instantiated");
+    }
 
     public void chattingWithGirl(){
+        Girl girl = new Girl();
         girl.chat();
-    }
-
-    public Boy(Girl girl) { //Constructor Injection
-        this.girl = girl;
-    }
-
-    public void setGirl(Girl girl){ //Setter Method Injection
-        this.girl = girl;
     }
 }
