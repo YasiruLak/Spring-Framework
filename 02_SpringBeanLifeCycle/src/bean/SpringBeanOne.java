@@ -19,11 +19,11 @@ import org.springframework.stereotype.Component;
  * @since : 0.1.0
  **/
 @Component
-@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
+//@Scope(ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class SpringBeanOne implements BeanNameAware, BeanFactoryAware, ApplicationContextAware, InitializingBean, DisposableBean {
 
     public SpringBeanOne(){
-        System.out.println("Spring Bean One");
+            System.out.println("Spring Bean One");
     }
 
     @Override
