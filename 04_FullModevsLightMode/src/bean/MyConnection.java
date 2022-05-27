@@ -8,8 +8,5 @@ package bean;
  * @year : 2022
  * @since : 0.1.0
  **/
-public class SpringBeanTwo {
-    public SpringBeanTwo(){
-        System.out.println("Instantiated Spring Bean Two");
-    }
+public class MyConnection {
 }
