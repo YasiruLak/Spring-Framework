@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
  * @year : 2022
  * @since : 0.1.0
  **/
-@Component
-public class SpringBean {
-    public SpringBean(){
-        System.out.println("Spring Bean One Instantiate");
+
+public class SpringBeanOne {
+    public SpringBeanOne(){
+        System.out.println("Instantiated Spring Bean One");
     }
 }
