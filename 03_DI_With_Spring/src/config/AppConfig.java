@@ -13,6 +13,6 @@ import org.springframework.stereotype.Component;
  * @since : 0.1.0
  **/
 @Configuration
-@ComponentScan(basePackages = "bean")
+@ComponentScan(basePackages = "di")
 public class AppConfig {
 }

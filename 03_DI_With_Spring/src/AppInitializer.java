@@ -17,9 +17,9 @@ public class AppInitializer {
         context.refresh();
         context.registerShutdownHook();
 
-        Boy bean = context.getBean(Boy.class);
-        System.out.println(bean);
-        bean.chattingWithGirl();
+//        Boy bean = context.getBean(Boy.class);
+//        System.out.println(bean);
+//        bean.chattingWithGirl();
     }
 }
 
