@@ -27,6 +27,10 @@ public class AppConfig {
         MyConnection myConnection2 = myConnection();
         MyConnection myConnection3 = myConnection();
 
+        System.out.println(myConnection1);
+        System.out.println(myConnection2);
+        System.out.println(myConnection3);
+
         MyBasicDataSource myBasicDataSource = new MyBasicDataSource();
         myBasicDataSource.setMyConnection(myConnection1);
 
