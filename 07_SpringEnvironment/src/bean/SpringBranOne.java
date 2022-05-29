@@ -22,6 +22,14 @@ public class SpringBranOne implements InitializingBean {
     @Value("${LOGNAME}")
     private String logName;
 
+    @Value("${ijse.application.name}")
+    private String projectName;
+
+    @Value("${ijse.application.db}")
+    private String dbName;
+
+
+
     public SpringBranOne() {
         System.out.println("Spring Bean One Instantiated");
     }
@@ -30,5 +38,7 @@ public class SpringBranOne implements InitializingBean {
     public void afterPropertiesSet() throws Exception {
         System.out.println(osName);
         System.out.println(logName);
+        System.out.println(projectName);
+        System.out.println(dbName);
     }
 }
