@@ -1,5 +1,6 @@
 package bean;
 
+import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -12,7 +13,7 @@ import org.springframework.stereotype.Component;
  * @since : 0.1.0
  **/
 @Component
-public class SpringBeanTwo {
+public class SpringBeanTwo implements InitializingBean {
     @Value("C001")
     private String id;
     @Value("Yasiru")
@@ -23,6 +24,11 @@ public class SpringBeanTwo {
     private double salary;
 
     public SpringBeanTwo() {
+
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
         System.out.println("Default Constructor");
         System.out.println(id);
         System.out.println(name);
