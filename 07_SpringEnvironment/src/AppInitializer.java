@@ -23,10 +23,10 @@ public class AppInitializer {
         //Access System Environment Variables With Java
         //System.getenv();
 
-        Map<String, String> getenv = System.getenv();
-        for (String key : getenv.keySet()) {
-            System.out.println(key+" : "+getenv.get(key));
-        }
+//        Map<String, String> getenv = System.getenv();
+//        for (String key : getenv.keySet()) {
+//            System.out.println(key+" : "+getenv.get(key));
+//        }
 
         //Access Predefined properties from java
 //        System.getProperties();
