@@ -2,6 +2,7 @@ import config.AppConfig;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.util.Map;
+import java.util.Properties;
 
 /**
  * @author : Yasiru Dahanayaka
@@ -25,6 +26,13 @@ public class AppInitializer {
         Map<String, String> getenv = System.getenv();
         for (String key : getenv.keySet()) {
             System.out.println(key+" : "+getenv.get(key));
+        }
+
+        //Access Predefined properties from java
+//        System.getProperties();
+        Properties properties = System.getProperties();
+        for (Object key : properties.keySet()) {
+            System.out.println(key+" : "+ properties.get(key));
         }
     }
 }
