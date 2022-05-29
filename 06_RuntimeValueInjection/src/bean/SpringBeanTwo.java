@@ -29,10 +29,10 @@ public class SpringBeanTwo implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println("Default Constructor");
-        System.out.println(id);
-        System.out.println(name);
-        System.out.println(address);
-        System.out.println(salary);
+//        System.out.println("Default Constructor");
+//        System.out.println(id);
+//        System.out.println(name);
+//        System.out.println(address);
+//        System.out.println(salary);
     }
 }

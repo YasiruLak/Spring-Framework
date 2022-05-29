@@ -22,17 +22,17 @@ public class SpringBean {
 
     @Autowired(required = false)//Greadius Constructor
     public SpringBean(@Value("C001") String id, @Value("10") int age, @Value("true") boolean b) {
-        System.out.println("Spring Bean Instantiated");
-        System.out.println(id);
-        System.out.println(age);
-        System.out.println(b);
+//        System.out.println("Spring Bean Instantiated");
+//        System.out.println(id);
+//        System.out.println(age);
+//        System.out.println(b);
     }
 
     @Autowired(required = false)
     public SpringBean(@Value("Yasiru,Kasun,amal") String[] myNames) {
         System.out.println("Spring Bean Instantiated");
         for (String myName : myNames){
-            System.out.println(myName);
+//            System.out.println(myName);
         }
     }
 }
