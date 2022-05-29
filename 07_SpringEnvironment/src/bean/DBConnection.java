@@ -35,6 +35,9 @@ public class DBConnection implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
+
+        String requiredProperty = environment.getRequiredProperty("user.namee"); // if key is wrong = Exception
+
         System.out.println(environment);
         String logname = environment.getProperty("LOGNAME");
         System.out.println(logname);
