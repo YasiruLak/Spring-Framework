@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
  * @year : 2022
  * @since : 0.1.0
  **/
-@Component
+//@Component
 public class SpringBranOne implements InitializingBean {
 
     //${} Property Placeholder

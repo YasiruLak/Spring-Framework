@@ -2,6 +2,7 @@ package bean;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 /**
  * @author : Yasiru Dahanayaka
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
  * @year : 2022
  * @since : 0.1.0
  **/
+//@Component
 public class SpringBeanTwo implements InitializingBean {
 
     @Value("${my.name}")
@@ -24,7 +26,7 @@ public class SpringBeanTwo implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println(myName);
-        System.out.println(myAge);
+//        System.out.println(myName);
+//        System.out.println(myAge);
     }
 }
