@@ -1,5 +1,9 @@
 package config;
 
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+
 /**
  * @author : Yasiru Dahanayaka
  * @name : Spring Testing
@@ -8,5 +12,8 @@ package config;
  * @year : 2022
  * @since : 0.1.0
  **/
+@Configuration
+@ComponentScan(basePackages = "bean")
+@EnableWebMvc
 public class WebAppConfig {
 }
