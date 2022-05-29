@@ -9,6 +9,7 @@ package bean;
  * @since : 0.1.0
  **/
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -19,13 +20,15 @@ public class SpringBean {
 //        System.out.println("Spring Bean Default Constructor");
 //    }
 
-//    public SpringBean(@Value("C001") String id, @Value("10") int age, @Value("true") boolean b) {
-//        System.out.println("Spring Bean Instantiated");
-//        System.out.println(id);
-//        System.out.println(age);
-//        System.out.println(b);
-//    }
+    @Autowired(required = false)
+    public SpringBean(@Value("C001") String id, @Value("10") int age, @Value("true") boolean b) {
+        System.out.println("Spring Bean Instantiated");
+        System.out.println(id);
+        System.out.println(age);
+        System.out.println(b);
+    }
 
+    @Autowired(required = false)
     public SpringBean(@Value("Yasiru,Kasun,amal") String[] myNames) {
         System.out.println("Spring Bean Instantiated");
         for (String myName : myNames){
