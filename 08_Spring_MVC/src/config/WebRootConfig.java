@@ -1,5 +1,7 @@
 package config;
 
+import org.springframework.context.annotation.Configuration;
+
 /**
  * @author : Yasiru Dahanayaka
  * @name : Spring Testing
@@ -8,5 +10,6 @@ package config;
  * @year : 2022
  * @since : 0.1.0
  **/
+@Configuration
 public class WebRootConfig {
 }
