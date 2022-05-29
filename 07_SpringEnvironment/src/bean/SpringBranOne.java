@@ -36,9 +36,9 @@ public class SpringBranOne implements InitializingBean {
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        System.out.println(osName);
-        System.out.println(logName);
-        System.out.println(projectName);
-        System.out.println(dbName);
+//        System.out.println(osName);
+//        System.out.println(logName);
+//        System.out.println(projectName);
+//        System.out.println(dbName);
     }
 }
