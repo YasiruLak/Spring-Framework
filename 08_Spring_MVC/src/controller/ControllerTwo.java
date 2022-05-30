@@ -13,13 +13,14 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @RestController
-@RequestMapping("two")
+@RequestMapping("two")//Handle Method
 public class ControllerTwo {
 
     public ControllerTwo() {
         System.out.println("Created Two");
     }
 
+    //Mapping Method //Handle Method
     @GetMapping
     public String testTwo(){
         return "Hello Spring";
