@@ -1,8 +1,6 @@
 package lk.ijse.spring.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author : Yasiru Dahanayaka
@@ -18,6 +16,21 @@ public class CustomerController {
 
     @GetMapping
     public String getAllCustomer(){
-        return "Hello World";
+        return "Get Customer";
+    }
+
+    @PostMapping
+    public String saveCustomer(){
+        return "Customer Saved";
+    }
+
+    @PutMapping
+    public String updateCustomer(){
+        return "Customer Updated";
+    }
+
+    @DeleteMapping
+    public String deleteCustomer(){
+        return "Customer Deleted";
     }
 }
