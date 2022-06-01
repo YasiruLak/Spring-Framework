@@ -19,7 +19,7 @@ public class CustomerController {
         return "Get Customer";
     }
 
-    @GetMapping
+    @GetMapping(path = "search")
     public String searchCustomer(){
         return "Search Customer";
     }
