@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @Controller
-@RequestMapping("one")
+@RequestMapping("home")
 public class ControllerOne {
 
     public ControllerOne() {
@@ -22,7 +22,7 @@ public class ControllerOne {
     }
 
     @GetMapping
-    public void testMethod(){
-        System.out.println("Request Received");
+    public String testMethod(){
+        return "index";
     }
 }

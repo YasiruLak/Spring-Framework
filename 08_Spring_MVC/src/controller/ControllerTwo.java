@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @Controller
-@RequestMapping("two")//Handle Method
+@RequestMapping("customer")//Handle Method
 public class ControllerTwo {
 
     public ControllerTwo() {
@@ -24,6 +24,6 @@ public class ControllerTwo {
     //Mapping Method //Handle Method
     @GetMapping
     public String testTwo(){
-        return "Hello Spring";
+        return "customer";
     }
 }
