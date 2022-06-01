@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @RestController
-@RequestMapping("controllerone")
+@RequestMapping("one")
 public class ControllerOne {
 
     public ControllerOne() {

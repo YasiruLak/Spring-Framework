@@ -13,8 +13,8 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * @since : 0.1.0
  **/
 @Configuration
-@ComponentScan(basePackages = "bean")
-@ComponentScan(basePackages = {"bean","controller"})
+//@ComponentScan(basePackages = "bean")
+@ComponentScan(basePackages = {"controller"})
 @EnableWebMvc
 public class WebAppConfig {
 }
