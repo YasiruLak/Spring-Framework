@@ -19,6 +19,11 @@ public class CustomerController {
         return "Get Customer";
     }
 
+    @GetMapping
+    public String searchCustomer(){
+        return "Search Customer";
+    }
+
     @PostMapping
     public String saveCustomer(){
         return "Customer Saved";
