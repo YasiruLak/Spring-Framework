@@ -29,7 +29,7 @@ public class PathVariableController {
         return id;
     }
 
-    @GetMapping(path = "{customerID}/{customerName}") //  setting alias when parameters names and variable names differ
+    @GetMapping(path = "{customerID:[C][0-9]{3}}/{customerName:[A-z]{4,}}") //  setting alias when parameters names and variable names differ
     public String test2(@PathVariable("customerID") String id,@PathVariable("customerName") String name) {
         return id +" "+name;
     }
