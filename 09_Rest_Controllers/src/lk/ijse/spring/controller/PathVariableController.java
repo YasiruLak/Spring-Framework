@@ -24,7 +24,7 @@ public class PathVariableController {
     // In spring we can retrieve values of path segments
     // To do that we have to crate path variables -> {I001}
 
-    @GetMapping(path = "{id}")
+    @GetMapping(path = "{id:[a-z]{3}}")
     public String test(@PathVariable String id) {
         return id;
     }
@@ -33,4 +33,4 @@ public class PathVariableController {
     public String test2(@PathVariable("customerID") String id,@PathVariable("customerName") String name) {
         return id +" "+name;
     }
-}
+}   
