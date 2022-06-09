@@ -1,11 +1,13 @@
-import lk.ijse.spring.WebAppConfig;
-import lk.ijse.spring.WebRootConfig;
+package lk.ijse.spring;
+
+import lk.ijse.spring.config.WebAppConfig;
+import lk.ijse.spring.config.WebRootConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
  * @author : Yasiru Dahanayaka
  * @name : Spring Testing
- * @date : 6/1/2022
+ * @date : 6/9/2022
  * @month : 06
  * @year : 2022
  * @since : 0.1.0
