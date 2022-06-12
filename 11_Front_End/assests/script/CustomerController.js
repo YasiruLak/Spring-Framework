@@ -78,7 +78,7 @@ $("#btnDeleteCustomer").click(function () {
     let customerID = $("#txtCusId").val();
 
     $.ajax({
-        url: "customer?customerID=" + customerID,
+        url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/custome?customerID=" + customerID,
         method: "DELETE",
 
         success: function (res) {
@@ -110,7 +110,7 @@ $("#btnUpdateCustomer").click(function () {
         contact: $("#txtCusContact").val()
     };
     $.ajax({
-        url: "customer",
+        url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/customer",
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(cusOb),

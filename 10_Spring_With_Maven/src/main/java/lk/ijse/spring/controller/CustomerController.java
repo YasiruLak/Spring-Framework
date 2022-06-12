@@ -38,4 +38,14 @@ public class CustomerController {
     public CustomerDTO searchCustomer(@PathVariable String id){
         return new CustomerDTO("C004","Yasiru","Galle","076");
     }
+
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CustomerDTO updateCustomer(@RequestBody CustomerDTO dto){
+        return dto;
+    }
+
+    @DeleteMapping(params = {"id"})
+    public CustomerDTO deleteCustomer(String id){
+        return new CustomerDTO(id, "Dasun", "Galle", "089");
+    }
 }
