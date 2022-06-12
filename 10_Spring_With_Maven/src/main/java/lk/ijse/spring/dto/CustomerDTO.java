@@ -12,16 +12,16 @@ public class CustomerDTO {
     private String id;
     private String name;
     private String address;
-    private double salary;
+    private String contact;
 
     public CustomerDTO() {
     }
 
-    public CustomerDTO(String id, String name, String address, double salary) {
+    public CustomerDTO(String id, String name, String address, String contact) {
         this.id = id;
         this.name = name;
         this.address = address;
-        this.salary = salary;
+        this.contact = contact;
     }
 
     public String getId() {
@@ -48,12 +48,12 @@ public class CustomerDTO {
         this.address = address;
     }
 
-    public double getSalary() {
-        return salary;
+    public String getContact() {
+        return contact;
     }
 
-    public void setSalary(double salary) {
-        this.salary = salary;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     @Override
@@ -62,7 +62,7 @@ public class CustomerDTO {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
-                ", salary=" + salary +
+                ", contact='" + contact + '\'' +
                 '}';
     }
 }

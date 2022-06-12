@@ -2,9 +2,9 @@ package lk.ijse.spring.controller;
 
 import lk.ijse.spring.dto.CustomerDTO;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 
 /**
  * @author : Yasiru Dahanayaka
@@ -15,7 +15,27 @@ import org.springframework.web.bind.annotation.RestController;
  * @since : 0.1.0
  **/
 @RestController
-@RequestMapping("customer")
+@RequestMapping("api/v1/customer")
+@CrossOrigin
 public class CustomerController {
 
+    @GetMapping
+    public ArrayList<CustomerDTO> getAllCustomer(){
+        ArrayList<CustomerDTO> arrayList = new ArrayList<>();
+        arrayList.add(new CustomerDTO("C001","Yasiru","Galle","076"));
+        arrayList.add(new CustomerDTO("C002","Yasiru","Galle","076"));
+        arrayList.add(new CustomerDTO("C003","Yasiru","Galle","076"));
+        arrayList.add(new CustomerDTO("C004","Yasiru","Galle","076"));
+        return arrayList;
+    }
+
+    @PostMapping(consumes = {"application/x-www-form-urlencoded"})
+    public CustomerDTO saveCustomer(@ModelAttribute CustomerDTO dto){
+        return dto;
+    }
+
+    @GetMapping(path = "/{id}")
+    public CustomerDTO searchCustomer(@PathVariable String id){
+        return new CustomerDTO("C004","Yasiru","Galle","076");
+    }
 }

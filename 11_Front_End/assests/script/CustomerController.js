@@ -17,7 +17,7 @@ $("#btnSaveCustomer").click(function () {
     }else{
         console.log(data);
         $.ajax({
-            url: "customer",
+            url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/customer",
             method: "POST",
             data: data,
             success: function (res) {
@@ -59,10 +59,10 @@ function resetCustomer() {
 function loadAllCustomer() {
     $("#customerTable").empty();
     $.ajax({
-        url: "customer?option=GETALL",
+        url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/customer",
         method: "GET",
         success: function (resp) {
-            for (const customer of resp.data) {
+            for (const customer of resp) {
                 let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
                 $("#customerTable").append(row);
 
