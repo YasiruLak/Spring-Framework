@@ -18,28 +18,4 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("customer")
 public class CustomerController {
 
-    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public CustomerDTO getAllCustomer(){
-        return new CustomerDTO("C001","Yasiru","Galle",100.00);
-    }
-
-    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CustomerDTO searchCustomer(){
-        return new CustomerDTO("C002","Yasiru","Galle",100.00);
-    }
-
-    @GetMapping(consumes = "text/html",produces = "application/json")
-    public CustomerDTO testMethodOne(){
-        return new CustomerDTO("C001","Text","Panadura",1000);
-    }
-
-    @GetMapping(consumes = "application/json",produces = "application/json")
-    public CustomerDTO testMethodTwo(){
-        return new CustomerDTO("C002","JSON","Panadura",1000);
-    }
-
-    @GetMapping(headers = {"Content-Type=text/css","Accept=application/json"})
-    public CustomerDTO testMethodThree(){
-        return new CustomerDTO("C003","JSON","Panadura",1000);
-    }
 }
