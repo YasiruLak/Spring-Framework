@@ -12,6 +12,7 @@
       <module fileurl="file://$PROJECT_DIR$/08_Spring_MVC/08_Spring_MVC.iml" filepath="$PROJECT_DIR$/08_Spring_MVC/08_Spring_MVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/09_Rest_Controllers/09_Rest_Controllers.iml" filepath="$PROJECT_DIR$/09_Rest_Controllers/09_Rest_Controllers.iml" />
       <module fileurl="file://$PROJECT_DIR$/10_Spring_With_Maven/10_Spring_With_Maven.iml" filepath="$PROJECT_DIR$/10_Spring_With_Maven/10_Spring_With_Maven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/11_Front_End/11_Front_End.iml" filepath="$PROJECT_DIR$/11_Front_End/11_Front_End.iml" />
     </modules>
   </component>
 </project>
