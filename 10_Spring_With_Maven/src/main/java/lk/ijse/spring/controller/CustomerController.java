@@ -22,4 +22,9 @@ public class CustomerController {
     public CustomerDTO getAllCustomer(){
         return new CustomerDTO("C001","Yasiru","Galle",100.00);
     }
+
+    @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CustomerDTO searchCustomer(){
+        return new CustomerDTO("C002","Yasiru","Galle",100.00);
+    }
 }
