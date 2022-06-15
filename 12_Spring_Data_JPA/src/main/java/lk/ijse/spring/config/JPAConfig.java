@@ -29,36 +29,36 @@ import javax.sql.DataSource;
 public class JPAConfig {
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean EntityManagerFactory(DataSource dataSource, JpaVendorAdapter jpaVendorAdapter){
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource ds, JpaVendorAdapter va){
         LocalContainerEntityManagerFactoryBean bean = new LocalContainerEntityManagerFactoryBean();
-        bean.setJpaVendorAdapter(jpaVendorAdapter); //vendor
-        bean.setDataSource(dataSource);
-        bean.setPackagesToScan("lk.ijse.spring.entity"); //location where entity
+        bean.setJpaVendorAdapter(va); // Vendor (Hibernate)
+        bean.setDataSource(ds); //Connection
+        bean.setPackagesToScan("lk.ijse.spring.entity"); // location of the entity
         return bean;
     }
 
     @Bean
     public DataSource dataSource(){
-        DriverManagerDataSource source = new DriverManagerDataSource();
-        source.setUrl("jdbc:mysql://localhost:3306/springjpa?createDatabaseIfNotExist=true");
-        source.setUsername("root");
-        source.setPassword("19980611");
-        source.setDriverClassName("com.mysql.jdbc.Driver");
-        return source;
+        DriverManagerDataSource dataSource= new DriverManagerDataSource();
+        dataSource.setUrl("jdbc:mysql://localhost:3306/springjpa?createDatabaseIfNotExist=true");
+        dataSource.setUsername("root");
+        dataSource.setPassword("19980611");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
+        return dataSource;
     }
 
     @Bean
     public JpaVendorAdapter jpaVendorAdapter(){
-        HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
-        adapter.setDatabasePlatform("org.hibernate.dialect.MySQL8Dialect");
-        adapter.setDatabase(Database.MYSQL);
-        adapter.setShowSql(true);
-        adapter.setGenerateDdl(true);
-        return adapter;
+        HibernateJpaVendorAdapter vendor= new HibernateJpaVendorAdapter();
+        vendor.setDatabasePlatform("org.hibernate.dialect.MySQL8Dialect");
+        vendor.setDatabase(Database.MYSQL);
+        vendor.setShowSql(true);
+        vendor.setGenerateDdl(true);
+        return vendor;
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory){
-        return new JpaTransactionManager(entityManagerFactory);
+    public PlatformTransactionManager transactionManager(EntityManagerFactory emf){
+        return new JpaTransactionManager(emf);
     }
 }
