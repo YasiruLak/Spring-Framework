@@ -60,4 +60,13 @@ class CustomerRepoTest {
         System.out.println(customer.toString());
     }
 
+    @Test
+    public void deleteCustomer(){
+
+        customerRepo.deleteById("C001");
+
+    }
+
+
+
 }
