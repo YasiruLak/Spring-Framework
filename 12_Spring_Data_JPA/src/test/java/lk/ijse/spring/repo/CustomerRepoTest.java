@@ -9,7 +9,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
+
 
 /**
  * @author : Yasiru Dahanayaka
@@ -19,21 +20,33 @@ import static org.junit.jupiter.api.Assertions.*;
  * @year : 2022
  * @since : 0.1.0
  **/
-@WebAppConfiguration
-@ContextConfiguration(classes = {JPAConfig.class})
-@ExtendWith(SpringExtension.class)
+@WebAppConfiguration // State test configuration class
+@ContextConfiguration(classes = {JPAConfig.class}) // import configurations for Test Context
+@ExtendWith(SpringExtension.class) // Run with Spring Extension
 class CustomerRepoTest {
 
     @Autowired
-    CustomerRepo customerRepo;
+    CustomerRepo customerRepo; // Inject the dependency of Customer Repo
 
-    @Test
-    public void saveCustomer(){
-        Customer customer = new Customer("C001", "Yasiru", "Galle", "091");
-        Customer customer2 = new Customer("C002", "Kasun", "Panadura", "078");
-        Customer customer3 = new Customer("C003", "Chamith", "Galle", "077");
-        customerRepo.save(customer);
+    @Test // Test method
+    public void saveCustomer() {
+        //Ok let's save a customer using Customer Repo
+        Customer customer1 = new Customer("C001", "Dasun", "Panadura", "078");
+        Customer customer2 = new Customer("C002", "Kasun", "Kaluthara", "091");
+        Customer customer3 = new Customer("C003", "Damith", "Galle", "078");
+        customerRepo.save(customer1);
         customerRepo.save(customer2);
         customerRepo.save(customer3);
     }
+
+    @Test
+    public void getAllCustomer(){
+        List<Customer> all = customerRepo.findAll();
+        for (Customer customer: all
+             ) {
+            System.out.println(customer.toString());
+
+        }
+    }
+
 }
