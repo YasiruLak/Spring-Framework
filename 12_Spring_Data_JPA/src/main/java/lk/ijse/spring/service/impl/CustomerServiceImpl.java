@@ -22,7 +22,7 @@ import java.util.List;
  **/
 @Service
 @Transactional
-public class CustomerServiceImpl implements CustomerService {
+public class CustomerServiceImpl implements CustomerService{
 
     @Autowired
     private CustomerRepo customerRepo;
