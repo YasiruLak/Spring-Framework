@@ -3,6 +3,9 @@ package lk.ijse.spring.service;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.repo.ItemRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +17,8 @@ import java.util.List;
  * @year : 2022
  * @since : 0.1.0
  **/
+@Service
+@Transactional
 public class ItemServiceImpl {
 
     @Autowired

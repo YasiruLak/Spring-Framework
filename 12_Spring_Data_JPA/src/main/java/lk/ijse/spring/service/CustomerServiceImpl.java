@@ -3,6 +3,11 @@ package lk.ijse.spring.service;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -14,6 +19,8 @@ import java.util.List;
  * @year : 2022
  * @since : 0.1.0
  **/
+@Service
+@Transactional
 public class CustomerServiceImpl {
 
     @Autowired
