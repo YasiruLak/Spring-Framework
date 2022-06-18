@@ -1,3 +1,5 @@
+var baseurl = "http://localhost:8080/13_Model_Mapper_war/api/v1/customer"
+
 loadAllCustomer();
 // $("#btnSaveCustomer").attr('disabled', true);
 
@@ -17,7 +19,7 @@ $("#btnSaveCustomer").click(function () {
     }else{
         console.log(data);
         $.ajax({
-            url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/customer",
+            url: baseurl,
             method: "POST",
             data: data,
             success: function (res) {
@@ -59,7 +61,7 @@ function resetCustomer() {
 function loadAllCustomer() {
     $("#customerTable").empty();
     $.ajax({
-        url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/customer",
+        url: baseurl,
         method: "GET",
         success: function (resp) {
             for (const customer of resp) {
@@ -78,7 +80,7 @@ $("#btnDeleteCustomer").click(function () {
     let customerID = $("#txtCusId").val();
 
     $.ajax({
-        url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/custome?customerID=" + customerID,
+        url: baseurl + "?id=" + customerID,
         method: "DELETE",
 
         success: function (res) {
@@ -110,7 +112,7 @@ $("#btnUpdateCustomer").click(function () {
         contact: $("#txtCusContact").val()
     };
     $.ajax({
-        url: "http://localhost:8080/10_Spring_With_Maven_war/api/v1/customer",
+        url: baseurl,
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(cusOb),
@@ -136,7 +138,7 @@ $("#btnSearchCustomer").click(function () {
     let customerID = $("#txtSearchCustomer").val();
     $("#customerTable").empty();
     $.ajax({
-        url: "customer?option=SEARCH&customerID=" + customerID,
+        url: baseurl + "/" + customerID,
         method: "GET",
         success: function (resp) {
                 let row = `<tr><td>${resp.id}</td><td>${resp.name}</td><td>${resp.address}</td><td>${resp.contact}</td></tr>`;
