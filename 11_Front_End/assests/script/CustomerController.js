@@ -4,45 +4,26 @@ loadAllCustomer();
 // $("#btnSaveCustomer").attr('disabled', true);
 
 
-
 $("#btnSaveCustomer").click(function () {
     let data = $("#customerForm").serialize();
 
-    if ($("#txtCusId").val() == '') {
-        alert("Can not be Customer Id empty");
-    } else if ($("#txtCusName").val() == '') {
-        alert("Can not be Customer Name empty");
-    }else if ($("#txtCusAddress").val() == '') {
-        alert("Can not be Customer Address empty");
-    }else if ($("#txtCusContact").val() == '') {
-        alert("Can not be Customer Contact empty");
-    }else{
-        console.log(data);
-        $.ajax({
-            url: baseurl,
-            method: "POST",
-            data: data,
-            success: function (res) {
-                console.log(res);
-                if (res.status == 200) {
-                    loadAllCustomer();
-                    alert(res.message);
-                    resetCustomer();
-                } else {
-                    console.log(res)
-                    alert(res.data);
-                }
-            },
-            error: function (ob, textStatus, error) {
-                console.log(ob);
-                console.log(textStatus);
-                console.log(error);
+    $.ajax({
+        url: baseurl,
+        method: "POST",
+        data: data,
+        success: function (res) {
+            if (res.code == 200) {
+                loadAllCustomer();
+                alert(res.message);
+                resetCustomer();
             }
-        });
-
-    }
-
+        },
+        error: function (ob) {
+            alert(ob.responseJSON.message);
+        }
+    });
 });
+
 
 $("#btnGetAllCustomer").click(function () {
     resetCustomer();
@@ -64,13 +45,16 @@ function loadAllCustomer() {
         url: baseurl,
         method: "GET",
         success: function (resp) {
-            for (const customer of resp) {
+            for (const customer of resp.data) {
                 let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
                 $("#customerTable").append(row);
 
             }
             bindClickEvents();
+        },
 
+        error: function (ob) {
+            alert(ob.responseJSON.message);
         }
     });
 }
@@ -84,22 +68,15 @@ $("#btnDeleteCustomer").click(function () {
         method: "DELETE",
 
         success: function (res) {
-            console.log(res);
-            if (res.status == 200) {
+            if (res.code == 200) {
                 alert(res.message);
                 resetCustomer();
                 loadAllCustomer();
-            } else if (res.status == 400) {
-                alert(res.data);
-            } else {
-                alert(res.data);
             }
 
         },
-        error: function (ob, status, t) {
-            console.log(ob);
-            console.log(status);
-            console.log(t);
+        error: function (ob) {
+            alert(ob.responseJSON.message);
         }
     });
 });
@@ -110,26 +87,21 @@ $("#btnUpdateCustomer").click(function () {
         name: $("#txtCusName").val(),
         address: $("#txtCusAddress").val(),
         contact: $("#txtCusContact").val()
-    };
+    }
     $.ajax({
         url: baseurl,
         method: "PUT",
         contentType: "application/json",
         data: JSON.stringify(cusOb),
         success: function (res) {
-            if (res.status == 200) {
+            if (res.code == 200) {
                 alert(res.message);
                 resetCustomer();
                 loadAllCustomer()
-            } else if (res.status == 400) {
-                alert(res.message);
-            } else {
-                alert(res.data);
             }
         },
-        error: function (ob, errorStus) {
-            console.log(ob);
-            console.log(errorStus);
+        error: function (ob) {
+            alert(ob.responseJSON.message);
         }
     });
 });
@@ -141,7 +113,8 @@ $("#btnSearchCustomer").click(function () {
         url: baseurl + "/" + customerID,
         method: "GET",
         success: function (resp) {
-                let row = `<tr><td>${resp.id}</td><td>${resp.name}</td><td>${resp.address}</td><td>${resp.contact}</td></tr>`;
+            var customer = resp.data;
+                let row = `<tr><td>${customer.id}</td><td>${customer.name}</td><td>${customer.address}</td><td>${customer.contact}</td></tr>`;
                 $("#customerTable").append(row);
 
             bindClickEvents();
