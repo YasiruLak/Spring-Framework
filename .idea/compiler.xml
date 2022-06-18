@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="13_Model_Mapper" />
         <module name="12_Spring_Data_JPA" />
         <module name="10_Spring_With_Maven" />
       </profile>
@@ -13,6 +14,7 @@
     <bytecodeTargetLevel>
       <module name="10_Spring_With_Maven" target="8" />
       <module name="12_Spring_Data_JPA" target="8" />
+      <module name="13_Model_Mapper" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
