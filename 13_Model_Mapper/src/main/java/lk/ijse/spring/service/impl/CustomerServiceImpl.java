@@ -1,8 +1,11 @@
 package lk.ijse.spring.service.impl;
 
+import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.entity.Customer;
 import lk.ijse.spring.repo.CustomerRepo;
 import lk.ijse.spring.service.CustomerService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,10 +27,14 @@ public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerRepo customerRepo;
 
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
-    public void saveCustomer(Customer customer){
-        if (!customerRepo.existsById(customer.getId())) {
-            customerRepo.save(customer);
+    public void saveCustomer(CustomerDTO dto){
+        if (!customerRepo.existsById(dto.getId())) {
+            Customer map = modelMapper.map(dto, Customer.class);
+            customerRepo.save(map);
         } else {
             throw new RuntimeException("Customer Already Exist..!");
         }
@@ -43,9 +50,10 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public void updateCustomer(Customer customer){
-        if (customerRepo.existsById(customer.getId())){
-            customerRepo.save(customer);
+    public void updateCustomer(CustomerDTO dto){
+        if (customerRepo.existsById(dto.getId())){
+            Customer map = modelMapper.map(dto, Customer.class);
+            customerRepo.save(map);
         }else {
             throw new RuntimeException("No Such a Customer..!");
         }
@@ -53,16 +61,18 @@ public class CustomerServiceImpl implements CustomerService{
     }
 
     @Override
-    public Customer searchCustomer(String id){
+    public CustomerDTO searchCustomer(String id){
         if (customerRepo.existsById(id)){
-            return customerRepo.findById(id).get();
+            Customer customer = customerRepo.findById(id).get();
+            return modelMapper.map(customer, CustomerDTO.class);
         }else{
             throw new RuntimeException("No Customer For "+id+" ..!");
         }
     }
 
     @Override
-    public List<Customer> getAllCustomer(){
-        return  customerRepo.findAll();
+    public List<CustomerDTO> getAllCustomer(){
+        return modelMapper.map(customerRepo.findAll(), new TypeToken<List<CustomerDTO>>() {
+        }.getType());
     }
 }
