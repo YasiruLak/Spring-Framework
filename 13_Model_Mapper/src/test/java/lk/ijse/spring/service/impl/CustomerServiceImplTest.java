@@ -76,6 +76,18 @@ class CustomerServiceImplTest {
 
     @Test
     void updateCustomer() {
+        addCustomers();
+
+        //update an existing customer
+        assertDoesNotThrow(()->{
+            service.updateCustomer(new CustomerDTO("C001", "Ramal", "Galle", "091"));
+        });
+
+        //update an non existing customer
+        //should throw an exception
+        assertThrows(RuntimeException.class,()->{
+            service.updateCustomer(new CustomerDTO("C005", "Ramal", "Galle", "078"));
+        });
     }
 
     @Test
