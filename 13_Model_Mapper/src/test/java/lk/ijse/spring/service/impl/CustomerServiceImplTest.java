@@ -11,6 +11,8 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
@@ -99,5 +101,14 @@ class CustomerServiceImplTest {
 
     @Test
     void getAllCustomer() {
+        addCustomers();
+
+        List<CustomerDTO> allCustomers = service.getAllCustomer();
+        for (CustomerDTO allCustomer : allCustomers) {
+            System.out.println(allCustomer.toString());
+        }
+
+        //Test customer availability
+        assertNotNull(allCustomers);
     }
 }
