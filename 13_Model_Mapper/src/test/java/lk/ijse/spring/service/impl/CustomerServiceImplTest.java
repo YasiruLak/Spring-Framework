@@ -60,6 +60,18 @@ class CustomerServiceImplTest {
 
     @Test
     void deleteCustomer() {
+        //Add multiple customers
+        addCustomers();
+
+        // delete existing customer
+        assertDoesNotThrow(()->{
+            service.deleteCustomer("C001");
+        });
+
+        //delete an non existing customer
+        assertThrows(RuntimeException.class,()->{
+            service.deleteCustomer("C016");
+        });
     }
 
     @Test
