@@ -76,4 +76,17 @@ class CustomerRepoTest {
         customerRepo.save(customer1);
     }
 
+    @Test
+    public void findCustomerByName(){
+        Customer yasiru = customerRepo.findCustomerByName("Yasiru");
+        System.out.println(yasiru.toString());
+    }
+
+    @Test
+    public void findCustomerByAddress(){
+        Customer galle = customerRepo.findCustomerByAddress("Galle");
+        System.out.println(galle.toString());
+    }
+
+
 }
