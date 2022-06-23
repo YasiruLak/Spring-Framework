@@ -30,6 +30,24 @@ class CustomerServiceImplTest {
     @Autowired
     CustomerService service;
 
+    //add One Customer for testing
+    public CustomerDTO addOneCustomer() {
+        //If it is a new Customer It should added to the database
+        return new CustomerDTO("C001", "Ramal", "Galle", "091");
+    }
+
+    //Add multiple customers for testing
+    public void addCustomers(){
+        CustomerDTO c1 = new CustomerDTO("C001","Dasun","Galle","091");
+        CustomerDTO c2 = new CustomerDTO("C002","Kamal","Panadura","091");
+        CustomerDTO c3 = new CustomerDTO("C003","Ramal","Kaluthara","091");
+        CustomerDTO c4 = new CustomerDTO("C004","Oshan","Colombo","091");
+        service.saveCustomer(c1);
+        service.saveCustomer(c2);
+        service.saveCustomer(c3);
+        service.saveCustomer(c4);
+    }
+
     @Test
     void saveCustomer() {
 
@@ -50,6 +68,9 @@ class CustomerServiceImplTest {
 
     @Test
     void searchCustomer() {
+        assertDoesNotThrow(()->{
+            service.searchCustomer("C001");
+        });
     }
 
     @Test
