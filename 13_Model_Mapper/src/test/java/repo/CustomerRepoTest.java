@@ -26,7 +26,7 @@ import java.util.Optional;
 @WebAppConfiguration // State test configuration class
 @ContextConfiguration(classes = {JPAConfig.class}) // import configurations for Test Context
 @ExtendWith(SpringExtension.class) // Run with Spring Extension
-@Transactional
+//@Transactional
 class CustomerRepoTest {
 
     @Autowired
@@ -88,5 +88,31 @@ class CustomerRepoTest {
         System.out.println(galle.toString());
     }
 
+    @Test
+    public void searchCustomerByNameAndAddress(){
+        Customer c1 = customerRepo.findCustomerByNameAndAddress("Kasun","Kaluthara");
+        System.out.println(c1.toString());
+    }
+
+    @Test
+    public void v1(){
+        Customer c1 = customerRepo.findByName("Dasun");
+        System.out.println(c1.toString());
+
+        Customer c2 = customerRepo.readByName("Dasun");
+        System.out.println(c2.toString());
+
+        Customer c3 = customerRepo.getByName("Dasun");
+        System.out.println(c3.toString());
+
+        Customer c4 = customerRepo.queryByName("Dasun");
+        System.out.println(c4.toString());
+
+        Customer c5 = customerRepo.searchByName("Kasun");
+        System.out.println(c5.toString());
+
+        Customer c6 = customerRepo.streamByName("Kasun");
+        System.out.println(c6.toString());
+    }
 
 }

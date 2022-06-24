@@ -15,4 +15,11 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
 
     Customer findCustomerByName(String name);
     Customer findCustomerByAddress(String address);
+    Customer findCustomerByNameAndAddress(String name, String Address);
+    Customer findByName(String name);
+    Customer readByName(String name);
+    Customer getByName(String name);
+    Customer queryByName(String name);
+    Customer searchByName(String name);
+    Customer streamByName(String name);
 }
