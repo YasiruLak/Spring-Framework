@@ -135,4 +135,12 @@ class CustomerRepoTest {
         });
     }
 
+    @Test
+    public void textQueryTwo(){
+        List<Customer> allCustomers = customerRepo.getAllCustomersWithJPQL();
+        allCustomers.forEach(v->{
+            System.out.println(v.toString());
+        });
+    }
+
 }
