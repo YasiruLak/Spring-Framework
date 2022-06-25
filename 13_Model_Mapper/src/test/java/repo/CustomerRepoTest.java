@@ -108,11 +108,23 @@ class CustomerRepoTest {
         Customer c4 = customerRepo.queryByName("Dasun");
         System.out.println(c4.toString());
 
-        Customer c5 = customerRepo.searchByName("Kasun");
-        System.out.println(c5.toString());
+//        Customer c5 = customerRepo.searchByName("Kasun");
+//        System.out.println(c5.toString());
 
         Customer c6 = customerRepo.streamByName("Kasun");
         System.out.println(c6.toString());
+    }
+
+    @Test
+    public void testCountBy(){
+        long dasun = customerRepo.countByName("Dasun");
+        System.out.println(dasun);
+    }
+
+    @Test
+    public void testExistsBy(){
+        boolean b = customerRepo.existsByNameAndAddress("Dasun", "Galle");
+        System.out.println(b);
     }
 
 }
