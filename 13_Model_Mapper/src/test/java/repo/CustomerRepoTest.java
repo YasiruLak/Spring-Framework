@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -174,7 +175,8 @@ class CustomerRepoTest {
 
     @Test
     public void checkPaging(){
-        PageRequest pr = PageRequest.of(0, 2);
+        PageRequest pr = PageRequest.of(0, 4, Sort.by("id").descending());
+
         Page<Customer> all = customerRepo.findAll(pr);
         all.forEach(v ->{
             System.out.println(v.toString());
