@@ -36,9 +36,11 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     // If there is only one record you can set the return type as follow
     Customer streamByName(String name);
 
+
     //If the query has more than one result you have
     //to change the method return type to list
     List<Customer> searchByName(String name);
+
 
     //test countBy
     long countByName(String name);
@@ -47,13 +49,15 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     //test existBy
     boolean existsByNameAndAddress(String name, String address);
 
+
     //native sql
     @Query(value = "select * from Customer", nativeQuery = true)
     List<Customer> getAllCustomers();
 
+
     //HQL - Hibernate Query Language
-
-
+    @Query(value = "from Customer c")
+    List<Customer> getAllCustomersWithHQL();
 
 
     //JPQL -  Java Persistence Query Language
