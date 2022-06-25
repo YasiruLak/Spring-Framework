@@ -81,4 +81,9 @@ public interface CustomerRepo extends JpaRepository<Customer, String> {
     @Query(value = "select * from Customer where name=:name and address=:address", nativeQuery = true)
     Customer searchCustomerFromNameWithNamedPara(@Param("name") String name, @Param("address") String address);
 
+
+    //JPQL = Java Persistence Query Language
+    @Query(value = "select c from Customer c where c.id=?1")
+    Customer getAllCustomersWithJPQLWithParams(String id);
+
 }
