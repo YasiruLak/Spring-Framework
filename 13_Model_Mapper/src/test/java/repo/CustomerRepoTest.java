@@ -151,4 +151,10 @@ class CustomerRepoTest {
         });
     }
 
+    @Test
+    public void textQueryFour(){
+        Customer customer = customerRepo.searchCustomerFromName("Damith","Galle");
+        System.out.println(customer.toString());
+    }
+
 }
