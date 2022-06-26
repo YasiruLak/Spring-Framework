@@ -10,12 +10,19 @@
         <module name="13_Model_Mapper" />
         <module name="12_Spring_Data_JPA" />
         <module name="10_Spring_With_Maven" />
+        <module name="13_SpringBoot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="10_Spring_With_Maven" target="8" />
       <module name="12_Spring_Data_JPA" target="8" />
       <module name="13_Model_Mapper" target="8" />
+      <module name="13_SpringBoot" target="8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="13_SpringBoot" options="-parameters" />
+    </option>
   </component>
 </project>
