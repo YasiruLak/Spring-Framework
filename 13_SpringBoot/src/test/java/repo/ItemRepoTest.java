@@ -1,5 +1,6 @@
 package repo;
 
+import lk.ijse.spring.WebAppInitializer;
 import lk.ijse.spring.entity.Item;
 import lk.ijse.spring.repo.ItemRepo;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ import java.util.Optional;
  * @year : 2022
  * @since : 0.1.0
  **/
-@SpringBootTest
+@SpringBootTest(classes = WebAppInitializer.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class ItemRepoTest {
 
     @Autowired

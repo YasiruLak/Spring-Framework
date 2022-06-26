@@ -19,13 +19,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @CrossOrigin
 public class AppWideAdvisor {
 
-//    @ExceptionHandler({Exception.class})
-//    public ResponseEntity exceptionHandler(Exception e) {
-//        //return new ResponseUtil(500, e.getMessage(), null);
-//        return new ResponseEntity(new ResponseUtil(500, e.getMessage(), null), HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
-
-
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler({Exception.class})
     public ResponseUtil exceptionHandler(Exception e) {

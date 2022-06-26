@@ -1,5 +1,6 @@
 package impl;
 
+import lk.ijse.spring.WebAppInitializer;
 import lk.ijse.spring.config.WebAppConfig;
 import lk.ijse.spring.dto.CustomerDTO;
 import lk.ijse.spring.service.CustomerService;
@@ -24,11 +25,11 @@ import static org.junit.jupiter.api.Assertions.*;
  * @year : 2022
  * @since : 0.1.0
  **/
-@SpringBootTest
+@SpringBootTest(classes = WebAppInitializer.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
 class CustomerServiceImplTest {
 
-    @Autowired
-    CustomerService service;
+   @Autowired
+   CustomerService service;
 
     //add One Customer for testing
     public CustomerDTO addOneCustomer() {

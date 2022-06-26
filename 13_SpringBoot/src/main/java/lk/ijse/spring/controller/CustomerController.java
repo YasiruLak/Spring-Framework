@@ -25,6 +25,7 @@ public class CustomerController {
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseUtil getAllCustomer(){
+        System.out.println("Hello");
         return new ResponseUtil(200,"Successfully Loaded",customerService.getAllCustomer());
     }
 
